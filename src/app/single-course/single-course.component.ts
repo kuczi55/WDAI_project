@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../course';
 
 @Component({
@@ -14,9 +14,23 @@ export class SingleCourseComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename
   @Input('isE') isEven: boolean;
 
+  @Output() deletedCourse = new EventEmitter<Course>();
+  @Output() ratedCourse = new EventEmitter<{course: Course, rating: number}>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  deleteCourse() {
+    this.deletedCourse.emit(this.course);
+  }
+
+  giveRating(course: Course, r: string) {
+    const rating: number = parseInt(r);
+    if(rating > 0) {
+      this.ratedCourse.emit({course, rating});
+    }
   }
 
 }

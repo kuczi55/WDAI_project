@@ -1,2 +1,2 @@
 <!-- <p>courses-list works!</p> -->
-<app-single-course *ngFor = "let singleCourse of courses, even as isEven" [isE] = "isEven" [course] = "singleCourse"></app-single-course>
+<app-single-course *ngFor = "let singleCourse of courses, even as isEven" (ratedCourse) = "rateCourse($event)" (deletedCourse) = "deleteCourse($event)" [isE] = "isEven" [course] = "singleCourse"></app-single-course>

@@ -7,6 +7,7 @@ export class Course {
     term: number;
     type: CourseType;
     capacity: number;
-    rating: number;
+    ratingSum: number;
+    ratingNo: number;
     pictureUrl: string;
 }

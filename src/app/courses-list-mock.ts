@@ -8,7 +8,8 @@ export const COURSES: Course[] = [
         term: 3,
         type: CourseType.Lab,
         capacity: 15,
-        rating: 1,
+        ratingSum: 1,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 2,
@@ -17,7 +18,8 @@ export const COURSES: Course[] = [
         term: 3,
         type: CourseType.Classes,
         capacity: 30,
-        rating: 4,
+        ratingSum: 4,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 3,
@@ -26,7 +28,8 @@ export const COURSES: Course[] = [
         term: 3,
         type: CourseType.Lab,
         capacity: 15,
-        rating: 5,
+        ratingSum: 5,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 4,
@@ -35,7 +38,8 @@ export const COURSES: Course[] = [
         term: 2,
         type: CourseType.Lecture,
         capacity: 200,
-        rating: 3,
+        ratingSum: 3,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 5,
@@ -44,7 +48,8 @@ export const COURSES: Course[] = [
         term: 1,
         type: CourseType.Classes,
         capacity: 30,
-        rating: 4,
+        ratingSum: 4,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 6,
@@ -53,7 +58,8 @@ export const COURSES: Course[] = [
         term: 4,
         type: CourseType.Lecture,
         capacity: 200,
-        rating: 2,
+        ratingSum: 2,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 7,
@@ -62,7 +68,8 @@ export const COURSES: Course[] = [
         term: 3,
         type: CourseType.Lecture,
         capacity: 200,
-        rating: 1,
+        ratingSum: 1,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 8,
@@ -71,7 +78,8 @@ export const COURSES: Course[] = [
         term: 2,
         type: CourseType.Lecture,
         capacity: 200,
-        rating: 4,
+        ratingSum: 4,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 9,
@@ -80,7 +88,8 @@ export const COURSES: Course[] = [
         term: 1,
         type: CourseType.Classes,
         capacity: 30,
-        rating: 3,
+        ratingSum: 3,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     },
     {   id: 10,
@@ -89,7 +98,8 @@ export const COURSES: Course[] = [
         term: 3,
         type: CourseType.Lab,
         capacity: 15,
-        rating: 4,
+        ratingSum: 4,
+        ratingNo: 1,
         pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
     }
 ];

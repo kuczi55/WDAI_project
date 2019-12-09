@@ -1,6 +1,6 @@
 export enum CourseType {
-    Lecture,
-    Classes,
-    Lab,
-    Project
+    Lecture = 0,
+    Classes = 1,
+    Lab = 2,
+    Project = 3
 }

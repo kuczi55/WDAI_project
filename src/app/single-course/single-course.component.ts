@@ -27,10 +27,15 @@ export class SingleCourseComponent implements OnInit {
   }
 
   giveRating(course: Course, r: string) {
+    // tslint:disable-next-line: radix
     const rating: number = parseInt(r);
-    if(rating > 0) {
+    if (rating > 0) {
       this.ratedCourse.emit({course, rating});
     }
+  }
+
+  toggle(course) {
+    course.hide = !course.hide;
   }
 
 }

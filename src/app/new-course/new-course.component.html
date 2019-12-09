@@ -1,0 +1,40 @@
+<form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm)">
+    <div class = "from-group">
+        <label class = "col-12">Nazwa kursu:
+        <input style = "margin-top: 5px;" formControlName="courseName" #courseName>
+        <span style = "margin-left: 5px;" *ngIf="formErrors.courseName" class="alert alert-danger">{{ formErrors.courseName }}</span></label>
+    </div>
+
+    <div class = "from-group">
+        <label class = "col-12">Ilość ECTS:
+        <input formControlName="courseEcts" #courseEcts>
+        <span style = "margin-left: 5px;" *ngIf="formErrors.courseEcts" class="alert alert-danger">{{ formErrors.courseEcts }}</span></label>
+    </div>
+
+    <div class = "from-group">
+        <label class = "col-12">Semestr:
+        <input formControlName="courseTerm" #courseTerm>
+        <span style = "margin-left: 5px;" *ngIf="formErrors.courseTerm" class="alert alert-danger">{{ formErrors.courseTerm }}</span></label>
+    </div>
+
+    <div class = "from-group">
+        <label class = "col-12">Ilość miejsc:
+        <input formControlName="courseCapacity" #courseCapacity>
+        <span style = "margin-left: 5px;" *ngIf="formErrors.courseCapacity" class="alert alert-danger">{{ formErrors.courseCapacity }}</span></label>
+    </div>
+
+    <div class = "from-group">
+        <label class = "col-12">Typ kursu:
+        <input formControlName="courseType" #courseType>
+        <span style = "margin-left: 5px;" *ngIf="formErrors.courseType" class="alert alert-danger">{{ formErrors.courseType }}</span></label>
+    </div>
+
+    <div class = "from-group">
+        <label class = "col-12">Link do zdjęcia kursu:
+        <input formControlName="coursePictureUrl" #coursePictureUrl>
+        <span style = "margin-left: 5px;" *ngIf="formErrors.coursePictureUrl" class="alert alert-danger">{{ formErrors.coursePictureUrl }}</span></label>
+    </div>
+    <div style="text-align:center" class="form-group mx-auto">
+        <button [disabled]="!modelForm.valid" class = "btn btn-primary" (click) = "createCourse(courseName.value, courseEcts.value, courseTerm.value, courseCapacity.value, coursePictureUrl.value)">Dodaj</button>
+    </div>
+</form>

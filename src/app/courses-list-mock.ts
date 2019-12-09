@@ -3,16 +3,19 @@ import { CourseType } from './course-type';
 
 export const COURSES: Course[] = [
     {   id: 1,
-        name: 'WDAI',
+        rating: undefined,
+        name: 'Wprowadzenie do aplikacji internetowych',
         ECTS: 3,
         term: 3,
         type: CourseType.Lab,
         capacity: 15,
-        ratingSum: 1,
+        ratingSum: 4,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 2,
+        rating: undefined,
         name: 'Fizyka',
         ECTS: 6,
         term: 3,
@@ -20,9 +23,11 @@ export const COURSES: Course[] = [
         capacity: 30,
         ratingSum: 4,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 3,
+        rating: undefined,
         name: 'Programowanie obiektowe',
         ECTS: 3,
         term: 3,
@@ -30,9 +35,11 @@ export const COURSES: Course[] = [
         capacity: 15,
         ratingSum: 5,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 4,
+        rating: undefined,
         name: 'Logika',
         ECTS: 3,
         term: 2,
@@ -40,9 +47,11 @@ export const COURSES: Course[] = [
         capacity: 200,
         ratingSum: 3,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 5,
+        rating: undefined,
         name: 'Algebra',
         ECTS: 6,
         term: 1,
@@ -50,9 +59,11 @@ export const COURSES: Course[] = [
         capacity: 30,
         ratingSum: 4,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 6,
+        rating: undefined,
         name: 'Systemy operacyjne',
         ECTS: 6,
         term: 4,
@@ -60,9 +71,11 @@ export const COURSES: Course[] = [
         capacity: 200,
         ratingSum: 2,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 7,
+        rating: undefined,
         name: 'Równania różniczkowe i różnicowe',
         ECTS: 4,
         term: 3,
@@ -70,9 +83,11 @@ export const COURSES: Course[] = [
         capacity: 200,
         ratingSum: 1,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 8,
+        rating: undefined,
         name: 'Algorytmy i struktury danych',
         ECTS: 6,
         term: 2,
@@ -80,9 +95,11 @@ export const COURSES: Course[] = [
         capacity: 200,
         ratingSum: 4,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 9,
+        rating: undefined,
         name: 'Matematyka dyskretna',
         ECTS: 4,
         term: 1,
@@ -90,9 +107,11 @@ export const COURSES: Course[] = [
         capacity: 30,
         ratingSum: 3,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     },
     {   id: 10,
+        rating: undefined,
         name: 'Inżynieria wymagań i jakości',
         ECTS: 3,
         term: 3,
@@ -100,6 +119,7 @@ export const COURSES: Course[] = [
         capacity: 15,
         ratingSum: 4,
         ratingNo: 1,
-        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg'
+        pictureUrl: 'https://i.ytimg.com/vi/BAy94LXkQOI/maxresdefault.jpg',
+        hide: true
     }
 ];

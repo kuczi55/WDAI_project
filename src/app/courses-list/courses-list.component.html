@@ -1,2 +1,21 @@
 <!-- <p>courses-list works!</p> -->
-<app-single-course *ngFor = "let singleCourse of courses, even as isEven" (ratedCourse) = "rateCourse($event)" (deletedCourse) = "deleteCourse($event)" [isE] = "isEven" [course] = "singleCourse"></app-single-course>
+<!-- <app-single-course *ngFor = "let singleCourse of courses, even as isEven" (ratedCourse) = "rateCourse($event)" (deletedCourse) = "deleteCourse($event)" [isE] = "isEven" [course] = "singleCourse"></app-single-course> -->
+<div class="my-5">
+        <h3 class="mb-3">Filtrowanie:</h3>
+        <app-course-filter (ratingToSearch)="searchByRating($event)" (textToSearch)=searchByTitle($event) (termToSearch)=searchByTerm($event) (ECTSToSearch)=searchByEcts($event)></app-course-filter>
+    </div>
+    <hr class="my-5">
+    <h3 class="mb-3">Lista kursów:</h3>
+    <ng-container *ngIf="(courses | searchPipe:searchText | ratingPipe:searchRating | termPipe:searchTerm | ectsPipe:searchECTS) as filteredCourses">
+        <app-single-course *ngFor="let singleCourse of filteredCourses, even as isEven" (ratedCourse)="rateCourse($event)" (deletedCourse)="deleteCourse($event)" [isE]="isEven" [course]="singleCourse"></app-single-course>
+        <div *ngIf="!filteredCourses.length">
+            <div class="alert alert-info" role="alert">
+                Nie znaleziono kursów spełniający kryteria filtrowania
+            </div>
+        </div>
+    </ng-container>
+    <hr class="my-5">
+    <h3 class="mb-3">Utwórz nowy kurs:</h3>
+    <div class="card card-block">
+        <app-new-course (createdCourse) = "createCourse($event)"></app-new-course>
+    </div>

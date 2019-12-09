@@ -1,10 +1,31 @@
 <div [ngClass] = "{'even_el': isEven, 'odd_el': !isEven}" style = "margin: 10px" class = "card card-block">
-    <div style = "margin: 10px" class = "row">
-        <img style = "max-width: 100px;" class = "img-fluid" src = "{{course.pictureUrl}}">
-        <h5 style = "margin-left: 5px;" class = "card-title">{{course.name}}</h5>
-        <div style = "margin-left: 5px;" class = "card-title">{{course.ratingSum/course.ratingNo}}</div>
-        <input type = "number" #rating min = "1" max = "5" style = "margin: auto 10px auto auto">
-        <button style = "margin: auto 10px auto auto" class = "btn btn-light" (click) = "deleteCourse(course)">Usuń</button>
-        <button style = "margin: auto 10px auto auto" class = "btn btn-danger" (click) = "giveRating(course, rating.value)">Oceń</button>
+    <div style = "margin: 10px 0" class = "row">
+        <div class = "col-1">
+            <img style = "max-width: 100px;" class = "img-fluid" src = "{{course.pictureUrl}}" alt = "obrazek">
+        </div>
+        <div class = "col-9" style = "padding-left: 40px;">
+            <h5 style = "display: inline-block" class = "card-title">{{course.name}}</h5><br>
+            <button class = "btn btn-primary" (click) = "toggle(course)">Szczegóły</button>
+            <p class="card-text" [hidden]="course.hide">Ilość punktów ECTS: {{course.ECTS}}</p>
+            <p class="card-text" [hidden]="course.hide">Semestr: {{course.term}}</p>
+            <p class="card-text" [hidden]="course.hide">Typ zajęć: {{course.type}}</p>
+            <p class="card-text" [hidden]="course.hide">Ilość miejsc: {{course.capacity}}</p>
+        </div>
+        <div class = "col-2">
+            <button style = "margin: auto 10px auto auto" class = "btn btn-light" (click) = "deleteCourse(course)">Usuń</button>
+        </div>
+           
+    </div>
+    <div style = "margin: 10px 0" class = "row">
+        <div class = "col-8">
+            <div style = "margin-left: 5px;" class = "card-title"><span>Ocena: </span>{{course.rating | number: '.2-2'}}
+            <br><span>Ilość ocen: </span>{{course.ratingNo}}</div>
+        </div>
+        <div class = "col-2">
+            <input type = "number" #rating min = "1" max = "5" style = "margin: auto 10px auto auto">
+        </div>
+        <div class = "col-2">
+            <button style = "margin: auto 10px auto auto" class = "btn btn-danger" (click) = "giveRating(course, rating.value)">Oceń</button>
+        </div>
     </div>
 </div>

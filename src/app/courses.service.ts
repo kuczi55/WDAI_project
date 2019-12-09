@@ -11,6 +11,7 @@ export class CoursesService {
 
   constructor() {
     this.courses = COURSES;
+    this.calculateRatings();
   }
 
   getCourses(): Array<Course> {
@@ -33,6 +34,12 @@ export class CoursesService {
   rateCourse( course: Course, rating: number): void {
     course.ratingSum = course.ratingSum + rating;
     course.ratingNo = course.ratingNo + 1;
-    console.log(rating);
+    this.calculateRatings();
+  }
+
+  calculateRatings(): void {
+    for (const course of this.courses) {
+      if (course.ratingNo > 0) {course.rating = course.ratingSum / course.ratingNo; } else { course.rating = undefined; }
+    }
   }
 }

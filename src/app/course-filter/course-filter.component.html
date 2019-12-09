@@ -1,0 +1,10 @@
+<div class="form form-group">
+    <label class="col-12" for="searchText">Nazwa kursu:
+        <input id="searchText"class="form-control" [(ngModel)]="searchText" type="text"  (input)="textSearch()"></label>
+    <label class="col-4" for="searchRating">Minimalna ocena:
+        <input id="searchRating"class="form-control" [(ngModel)]="searchRating" min="0" max="5" type="number" (input)="ratingSearch()"></label>
+    <label class="col-4" for="searchTerm">Semestr:
+        <input id="searchTerm"class="form-control" [(ngModel)]="searchTerm" min="0" max="7" type="number" (input)="termSearch()"></label>
+     <label class="col-4" for="searchECTS">Ilość ECTS:
+        <input id="searchECTS"class="form-control" [(ngModel)]="searchECTS" min="0" max="10" type="number" (input)="ECTSSearch()"></label>
+</div>

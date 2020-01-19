@@ -61,3 +61,19 @@ export class EctsPipe implements PipeTransform {
     });
   }
 }
+
+@Pipe({name: 'sortPipe'})
+  export class SortPipe implements PipeTransform {
+    transform(courses: Array<Course>): Array<Course> {
+      courses.sort((a: Course, b: Course) => {
+        if (a.name < b.name) {
+          return -1;
+        } else if (a.name > b.name) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      return courses;
+    }
+}

@@ -6,11 +6,14 @@
     </div>
     <hr class="my-5">
     <h3 class="mb-3">Lista kursów:</h3>
-    <ng-container *ngIf="(courses | async | searchPipe:searchText | ratingPipe:searchRating | termPipe:searchTerm | ectsPipe:searchECTS) as filteredCourses">
+    <ng-container *ngIf="(courses | async | searchPipe:searchText | ratingPipe:searchRating | termPipe:searchTerm | ectsPipe:searchECTS) | sortPipe |  paginate: { itemsPerPage: 6, currentPage: p } as filteredCourses">
         <app-single-course *ngFor="let singleCourse of filteredCourses, even as isEven" (ratedCourse)="rateCourse($event)" (deletedCourse)="deleteCourse($event)" [isE]="isEven" [course]="singleCourse"></app-single-course>
         <div *ngIf="!filteredCourses.length">
             <div class="alert alert-info" role="alert">
                 Nie znaleziono kursów spełniających kryteria filtrowania
             </div>
+        </div>
+        <div id="pagination" class="d-flex justify-content-center">
+            <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" responsive="true" previousLabel="Poprzednia strona" nextLabel="Następna strona"></pagination-controls>
         </div>
     </ng-container>

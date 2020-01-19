@@ -1,0 +1,47 @@
+<div class = "card text-center">
+    <div class="card-header">
+        <h4><strong>{{course.name}}</strong></h4>
+    </div>
+        <div style = "margin: 10px 0" class = "row">
+            <div class = "col-12">
+                <img style = "max-width: 400px;" class = "img-fluid" src = "{{course.pictureUrl}}" alt = "obrazek">
+            </div>    
+        </div>
+        <div style = "margin: 10px 0" class = "row">
+            <div class = "col-12">
+                <p class="card-text">Ilość punktów ECTS: {{course.ECTS}}</p>
+                <p class="card-text">Semestr: {{course.term}}</p>
+                <p class="card-text">Typ zajęć: {{courseType()}}</p>
+                <p class="card-text">Ilość miejsc: {{course.capacity}}</p>
+                <p class="card-text">Ilość wolnych miejsc: {{course.capacity-course.enrolledEmails.length}}</p>
+                <div *ngIf="!hasRated()">
+                    <input type = "number" value="5" #rating min = "1" max = "5" style = "margin: auto 10px auto auto">
+                    <button [disabled]="!isProperRating(rating.value) || !isEnrolled() || hasRated()" style = "margin: auto 10px auto auto" class = "btn btn-danger" (click) = "rateCourse(rating.value)">Oceń</button>
+                </div>
+                <div *ngIf="hasRated()" class="col-4 mx-auto">
+                    <div class="alert alert-info col-12" role="alert">
+                        Już oceniłeś ten kurs.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style = "margin: 10px 0" class = "row">
+            <div class = "col-12">
+                <div style = "margin-left: 5px;" class = "card-title"><span>Ocena: </span>{{course.ratingSum/course.ratedEmails.length | number: '.2-2'}}
+                 <br><span>Ilość ocen: </span>{{course.ratedEmails.length}}
+                </div>
+            </div>
+        </div>
+        <div style = "margin: 10px 0" class="row">
+            <div *ngIf="isEnrolled()" class="alert alert-info col-4 mx-auto" role="alert">
+                Jesteś zapisany na ten kurs.
+            </div>
+            <div *ngIf="freeNumber() <= 0 && !isEnrolled() && auth.getUser()!=null" class="alert alert-danger col-4 mx-auto" role="alert">
+                Nie możesz zapisać się na kurs. Brak wolnych miejsc.
+            </div>
+            <button *ngIf="!isEnrolled() && freeNumber()>0 && auth.getUser()!=null" class="btn btn-primary m-3 w-25 mx-auto" (click)="enroll()">Zapisz się na ten kurs</button>
+        </div>
+        <div class="row">
+            <a class="btn btn-primary m-3 w-25 mx-auto" [routerLink]="['/']" routerLinkActive="router-link-active">Powrót</a>
+        </div>
+    </div>

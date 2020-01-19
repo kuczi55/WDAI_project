@@ -5,18 +5,9 @@
         </div>
         <div class = "col-6 col-lg-8" style = "padding-left: 45px;">
             <h5 style = "display: inline-block" class = "card-title">{{course.name}}</h5><br>
-            <a class = "btn btn-primary" [routerLink]="['/course', course.id]">Szczegóły</a>
-            <!-- <app-display-details (ratingCourse)="giveRating($event)" [course]="course" [hidden]="course.hide"></app-display-details> -->
-            <!-- <app-display-details></app-display-details> -->
-            
-            
-            <!-- <p class="card-text">Ilość punktów ECTS: {{course.ECTS}}</p>
-            <p class="card-text">Semestr: {{course.term}}</p>
-            <p class="card-text">Typ zajęć: {{course.type}}</p>
-            <p class="card-text">Ilość miejsc: {{course.capacity}}</p> -->
         </div>
-        <div class = "offset-2">
-            <button *ngIf="auth.getUserRole()=='admin'" style = "margin: auto 10px auto auto" class = "btn btn-light" (click) = "deleteCourse(course)">Usuń</button>
+        <div class = "offset-1 offset-sm-2">
+            <a style = "margin: auto 10px auto auto" class = "btn btn-light" [routerLink]="['/admin', course.id]">Edytuj</a>
         </div>
     </div>
     <div style = "margin: 10px 0" class = "row">
@@ -26,3 +17,4 @@
         </div>
     </div>
 </div>
+

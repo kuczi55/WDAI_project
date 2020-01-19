@@ -6,35 +6,12 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<nav class="navbar fixed-top navbar-dark bg-it navbar-expand-md" style = "background: linear-gradient(90deg, rgba(11,141,221,1) 23%, rgba(34,152,222,1) 60%)">
-  <a class="navbar-brand" href="#"><img src="http://www.iet.agh.edu.pl/images/logo_iet.png" width = "50" height = "30" class="d-none d-sm-inline-block mr-sm-1 align-bottom" alt="">Courses Rating</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expended="false" aria-label="Przełącznik nawigacji">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <!-- <div class="collapse navbar-collapse" id="mainmenu">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#usluga">Usługi</a>
-      </li>
-      <li class="navbar-item">
-        <a class="nav-link" href="#wdrozenia">Wdrożenia</a>
-      </li>
-      <li class="navbar-item">
-        <a class="nav-link" href="#firma">O firmie</a>
-      </li>
-      <li class="navbar-item">
-        <a class="nav-link" href="#kadra">Zespół</a>
-      </li>
-      <li class="navbar-item">
-        <a class="nav-link" href="#kontakt">Kontakt</a>
-      </li>
-    </ul>
-  </div> -->
-</nav>
 
 
-<div class="container" role="main">
-    <app-courses-list></app-courses-list>
+<app-navbar></app-navbar>
+<div class="container-fluid" role="main">
+    <!-- <app-courses-list></app-courses-list> -->
+    <router-outlet></router-outlet>
 </div>
 
 <!-- <style>

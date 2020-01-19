@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Course } from '../course';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
+import { CoursesService } from '../courses.service';
 
 @Component({
   selector: 'app-new-course',
@@ -58,24 +59,28 @@ export class NewCourseComponent implements OnInit {
   // tslint:disable-next-line: semicolon
   }
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private coursesService: CoursesService) { }
 
   ngOnInit(): void {
-    this.modelForm = this.formBuilder.group({
-      courseName: ['', Validators.required],
-      courseEcts: ['', [Validators.required, Validators.pattern( /^[0-9]+$/), Validators.min(1), Validators.max(10)]],
-      courseTerm: ['', [Validators.required, Validators.pattern( /^[0-9]+$/), Validators.min(1), Validators.max(7)]],
-      courseCapacity: ['', [Validators.required, Validators.pattern( /^[0-9]+$/), Validators.min(1), Validators.max(1000)]],
-      courseType: ['', Validators.required],
-      coursePictureUrl: ['', Validators.required]
-    });
-
-    this.modelForm.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
-      this.onControlValueChanged();
-    });
-
-    this.onControlValueChanged();
+    this.setupForm();
   }
+
+setupForm() {
+  this.modelForm = this.formBuilder.group({
+    courseName: ['', Validators.required],
+    courseEcts: ['', [Validators.required, Validators.pattern( /^[0-9]+$/), Validators.min(1), Validators.max(10)]],
+    courseTerm: ['', [Validators.required, Validators.pattern( /^[0-9]+$/), Validators.min(1), Validators.max(7)]],
+    courseCapacity: ['', [Validators.required, Validators.pattern( /^[0-9]+$/), Validators.min(1), Validators.max(1000)]],
+    courseType: ['lecture', Validators.required],
+    coursePictureUrl: ['', Validators.required]
+  });
+
+  this.modelForm.valueChanges.pipe(debounceTime(500)).subscribe((value) => {
+    this.onControlValueChanged();
+  });
+
+  this.onControlValueChanged();
+}
 
 onControlValueChanged() {
   const form = this.modelForm;
@@ -94,14 +99,26 @@ onControlValueChanged() {
     }
   }
 }
-  createCourse(courseName: string, ects: string, term: string, capacity: string, coursePictureUrl: string) {
+  createCourse(courseForm: FormGroup) {
     // tslint:disable-next-line: radix
-    const courseEcts = parseInt(ects);
+    const formAttr = this.modelForm.value;
     // tslint:disable-next-line: radix
-    const courseTerm = parseInt(term);
+    const newCourse = {} as Course;
+    newCourse.name = formAttr.courseName;
     // tslint:disable-next-line: radix
-    const courseCapacity = parseInt(capacity);
-    // console.log(new Course(courseName, courseEcts, courseTerm, courseCapacity, coursePictureUrl).name);
-    this.createdCourse.emit(new Course(courseName, courseEcts, courseTerm, courseCapacity, coursePictureUrl));
+    newCourse.ECTS = parseInt(formAttr.courseEcts);
+    // tslint:disable-next-line: radix
+    newCourse.term = parseInt(formAttr.courseTerm);
+    // tslint:disable-next-line: radix
+    newCourse.capacity = parseInt(formAttr.courseCapacity);
+    newCourse.type = formAttr.courseType;
+    newCourse.pictureUrl = formAttr.coursePictureUrl;
+    // newCourse.rating = undefined;
+    newCourse.ratingSum = 0;
+    // newCourse.ratingNo = 0;
+    newCourse.enrolledEmails = [];
+    newCourse.ratedEmails = [];
+    this.setupForm();
+    this.coursesService.addCourse(newCourse);
   }
 }

@@ -1,0 +1,11 @@
+<h3 class="mx-auto mb-3">
+    Lista kursów:</h3>
+<app-admin-single-course *ngFor="let singleCourse of courses | async , even as isEven" [isE]="isEven" [course]="singleCourse"></app-admin-single-course>
+<!-- | async | sortPipe | paginate: { itemsPerPage: 8, currentPage: p }, <div id="pagination" class="d-flex justify-content-center">
+    <pagination-controls (pageChange)="p = $event" directionLinks="true" autoHide="true" responsive="true" previousLabel="Poprzednia strona" nextLabel="Następna strona"></pagination-controls>
+</div> -->
+<hr class="my-5">
+<h3 class="mb-3">Utwórz nowy kurs:</h3>
+<div class="card card-block">
+    <app-new-course></app-new-course>
+</div>

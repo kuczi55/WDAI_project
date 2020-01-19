@@ -1,0 +1,43 @@
+<nav class="navbar fixed-top navbar-dark bg-it navbar-expand-md" style = "background: linear-gradient(90deg, rgba(11,141,221,1) 23%, rgba(34,152,222,1) 60%)">
+    <a class="navbar-brand" [routerLink]="['/list']"><img src="http://www.iet.agh.edu.pl/images/logo_iet.png" width = "50" height = "30" class="d-none d-sm-inline-block mr-sm-1 align-bottom" alt="">Courses Rating</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expended="false" aria-label="Przełącznik nawigacji">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- <div *ngIf="auth.getUser()==null else loggedIn"> -->
+    <div *ngIf="auth.getUser()==null else loggedIn" class="collapse navbar-collapse" id="mainmenu">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']">Zaloguj się</a>
+        </li>
+        <li class="navbar-item">
+          <a class="nav-link" [routerLink]="['/registration']">Zarejestruj się</a>
+        </li>
+        <!-- <li class="navbar-item">
+          <a class="nav-link" href="#firma">O firmie</a>
+        </li>
+        <li class="navbar-item">
+          <a class="nav-link" href="#kadra">Zespół</a>
+        </li>
+        <li class="navbar-item">
+          <a class="nav-link" href="#kontakt">Kontakt</a>
+        </li> -->
+      </ul>
+    </div>
+    <!-- </div> -->
+
+    <ng-template #loggedIn>
+        <div class="collapse navbar-collapse" id="mainmenu">
+            <ul class="navbar-nav ml-auto">
+              <li *ngIf="auth.getUserRole()=='admin'" class="navbar-item" style="margin-right: 45px; margin-top: 3px">
+                <a class="nav-link" [routerLink]="['/admin']">Panel administratora</a>
+              </li>
+              <li class="nav-item">
+                <p style="color: white; margin-top: 10px; padding-right: 20px;">Witaj {{auth.getUser().email}}</p>
+              </li>
+              <li class="navbar-item">
+                <button class="btn btn-danger" style="margin-top: 3px" (click)="signOut()">Wyloguj się</button>
+              </li>
+            </ul>
+        </div>
+    </ng-template>
+</nav>

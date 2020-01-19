@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../course';
 import { COURSES } from '../courses-list-mock';
 import { CoursesService } from '../courses.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class CoursesListComponent implements OnInit {
 
   coursesService: CoursesService;
 
-  courses: Array<Course>;
+  courses: Observable<Course[]>;
 
   filteredCourses: Array<Course>;
 
@@ -31,25 +32,25 @@ export class CoursesListComponent implements OnInit {
   }
 
   getCourses(): void {
-    this.courses = this.coursesService.getCourses();
+    this.courses = this.coursesService.getObservableOfCourses();
   }
 
-  deleteCourse(courseToDelete: Course): void {
-    console.log(courseToDelete.name);
-    this.coursesService.deleteCourse(courseToDelete);
-    this.getCourses();
-  }
+  // deleteCourse(courseToDelete: Course): void {
+  //   console.log(courseToDelete.name);
+  //   this.coursesService.deleteCourse(courseToDelete);
+  //   this.getCourses();
+  // }
 
-  rateCourse(courseAndRating: {course: Course, rating: number}): void {
-    this.coursesService.rateCourse(courseAndRating.course, courseAndRating.rating);
-    this.getCourses();
-  }
+  // rateCourse(courseAndRating: {course: Course, rating: number}): void {
+  //   this.coursesService.rateCourse(courseAndRating.course, courseAndRating.rating);
+  //   this.getCourses();
+  // }
 
-  createCourse(course: Course): void {
-    console.log(course.name);
-    this.coursesService.addCourse(course);
-    this.getCourses();
-  }
+  // createCourse(course: Course): void {
+  //   console.log(course.name);
+  //   this.coursesService.addCourse(course);
+  //   this.getCourses();
+  // }
 
   searchByTitle(searchText: string): void {
     this.searchText = searchText;

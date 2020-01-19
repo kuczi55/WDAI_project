@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
 
-body{
-    padding-top: 70px;
+/* @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"); */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.container-fluid {
+    margin-top : 70px;
 }

@@ -27,7 +27,7 @@ export class RatingPipe implements PipeTransform {
       return courses;
     }
     return courses.filter(course => {
-      return course.ratingSum/course.ratedEmails.length >= minRating;
+      return course.ratingSum / course.ratedEmails.length >= minRating;
     });
   }
 }

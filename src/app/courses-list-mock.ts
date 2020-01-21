@@ -1,5 +1,4 @@
 import {Course} from './course';
-import { CourseType } from './course-type';
 
 export const COURSES: Course[] = [
     // {   id: '1',

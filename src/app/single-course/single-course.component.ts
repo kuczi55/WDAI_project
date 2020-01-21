@@ -17,8 +17,6 @@ export class SingleCourseComponent implements OnInit {
   @Input('isE') isEven: boolean;
 
   @Output() deletedCourse = new EventEmitter<Course>();
-  // @Output() ratedCourse = new EventEmitter<{course: Course, rating: number}>();
- 
 
   constructor(private auth: AuthenticationService, private coursesService: CoursesService) { }
 
@@ -32,16 +30,4 @@ export class SingleCourseComponent implements OnInit {
     } else {
     }
   }
-
-  // toggle(course) {
-  //   course.hide = !course.hide;
-  // }
-
-  // giveRating(courAndRat: {course: Course, rating: number}) {
-  //   // tslint:disable-next-line: radix
-  //   const course = courAndRat.course;
-  //   const rating = courAndRat.rating;
-  //   this.ratedCourse.emit({course, rating});
-  // }
-
 }

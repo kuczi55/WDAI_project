@@ -113,9 +113,7 @@ onControlValueChanged() {
     newCourse.capacity = parseInt(formAttr.courseCapacity);
     newCourse.type = formAttr.courseType;
     newCourse.pictureUrl = formAttr.coursePictureUrl;
-    // newCourse.rating = undefined;
     newCourse.ratingSum = 0;
-    // newCourse.ratingNo = 0;
     newCourse.enrolledEmails = [];
     newCourse.ratedEmails = [];
     this.setupForm();

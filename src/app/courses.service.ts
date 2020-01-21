@@ -13,7 +13,6 @@ export class CoursesService {
 
   constructor(private firestore: FirestoreService) {
     this.getArrayOfCourses();
-    // this.calculateRatings();
   }
 
   getArrayOfCourses() {
@@ -67,9 +66,7 @@ export class CoursesService {
   rateCourse( course: Course, rating: number, mail: string): void {
     if (rating == null || rating < 0 || rating > 5 || mail == null || this.hasRated(course, mail)) { return; }
     course.ratingSum = course.ratingSum + rating;
-    //course.ratingNo = course.ratingNo + 1;
     course.ratedEmails.push(mail);
-    //this.calculateRatings();
     this.firestore.updateData(course);
   }
 
@@ -80,12 +77,6 @@ export class CoursesService {
   isEnrolled(course: Course, mail: string) {
     return course.enrolledEmails.includes(mail);
   }
-
-  // calculateRatings(): void {
-  //   for (const course of this.courses) {
-  //     if (course.ratingNo > 0) {course.rating = course.ratingSum / course.ratingNo; } else { course.rating = undefined; }
-  //   }
-  // }
 
   freeNumber(course: Course): number {
     return course.capacity - course.enrolledEmails.length;

@@ -3,7 +3,6 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expended="false" aria-label="Przełącznik nawigacji">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- <div *ngIf="auth.getUser()==null else loggedIn"> -->
     <div *ngIf="auth.getUser()==null else loggedIn" class="collapse navbar-collapse" id="mainmenu">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -12,18 +11,8 @@
         <li class="navbar-item">
           <a class="nav-link" [routerLink]="['/registration']">Zarejestruj się</a>
         </li>
-        <!-- <li class="navbar-item">
-          <a class="nav-link" href="#firma">O firmie</a>
-        </li>
-        <li class="navbar-item">
-          <a class="nav-link" href="#kadra">Zespół</a>
-        </li>
-        <li class="navbar-item">
-          <a class="nav-link" href="#kontakt">Kontakt</a>
-        </li> -->
       </ul>
     </div>
-    <!-- </div> -->
 
     <ng-template #loggedIn>
         <div class="collapse navbar-collapse" id="mainmenu">
@@ -35,7 +24,7 @@
                 <p style="color: white; margin-top: 10px; padding-right: 20px;">Witaj {{auth.getUser().email}}</p>
               </li>
               <li class="navbar-item">
-                <button class="btn btn-danger" style="margin-top: 3px" (click)="signOut()">Wyloguj się</button>
+                <button class="btn btn-danger" style="margin-top: 3px" [routerLink]="['/list']" (click)="signOut()">Wyloguj się</button>
               </li>
             </ul>
         </div>

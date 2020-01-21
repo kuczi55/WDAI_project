@@ -1,11 +1,9 @@
-<!-- <p>courses-list works!</p> -->
-<!-- <app-single-course *ngFor = "let singleCourse of courses, even as isEven" (ratedCourse) = "rateCourse($event)" (deletedCourse) = "deleteCourse($event)" [isE] = "isEven" [course] = "singleCourse"></app-single-course> -->
-<div class="my-5" style="padding-top: 10px;">
-        <h3 class="mb-3">Filtrowanie:</h3>
+<div class="my-5 col-md-8 mx-auto" style="padding-top: 10px;">
+        <h3 class="mb-3 ml-2">Filtrowanie:</h3>
         <app-course-filter (ratingToSearch)="searchByRating($event)" (textToSearch)=searchByTitle($event) (termToSearch)=searchByTerm($event) (ECTSToSearch)=searchByEcts($event)></app-course-filter>
     </div>
     <hr class="my-5">
-    <h3 class="mb-3">Lista kursów:</h3>
+    <h3 class="mb-3" style="text-align: center;">Lista kursów:</h3>
     <ng-container *ngIf="(courses | async | searchPipe:searchText | ratingPipe:searchRating | termPipe:searchTerm | ectsPipe:searchECTS) | sortPipe |  paginate: { itemsPerPage: 6, currentPage: p } as filteredCourses">
         <app-single-course *ngFor="let singleCourse of filteredCourses, even as isEven" (ratedCourse)="rateCourse($event)" (deletedCourse)="deleteCourse($event)" [isE]="isEven" [course]="singleCourse"></app-single-course>
         <div *ngIf="!filteredCourses.length">

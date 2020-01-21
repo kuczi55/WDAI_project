@@ -1,12 +1,12 @@
-<div [ngClass]="{'even_el':isEven, 'odd_el':!isEven}" style = "margin: 10px" class = "card card-block">
+<div [ngClass]="{'even_el':isEven, 'odd_el':!isEven}" style = "margin: 10px" class = "card card-block col-md-8 col-lg-7 mx-auto">
     <div style = "margin: 10px 0" class = "row">
-        <div class = "col-2 col-lg-1">
+        <div class = "col-2">
             <img style = "max-width: 100px;" class = "img-fluid" src = "{{course.pictureUrl}}" alt = "obrazek">
         </div>
-        <div class = "col-6 col-lg-8" style = "padding-left: 45px;">
+        <div class = "col-6" style = "padding-left: 45px;">
             <h5 style = "display: inline-block" class = "card-title">{{course.name}}</h5><br>
         </div>
-        <div class = "offset-1 offset-sm-2">
+        <div class = "offset-2">
             <a style = "margin: auto 10px auto auto" class = "btn btn-light" [routerLink]="['/admin', course.id]">Edytuj</a>
         </div>
     </div>
